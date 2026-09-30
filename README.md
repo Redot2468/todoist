@@ -3,7 +3,7 @@
 A to-do list and notebook that runs entirely in your browser. Built as a
 submission for "Build and Deploy a To-Do List App Using AI".
 
-**Live site:** https://ridwan-lawal.github.io/todo-notes-app/
+**Live site:** https://redot2468.github.io/todoist/
 
 ---
 
