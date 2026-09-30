@@ -36,9 +36,12 @@ jobs:
 
       - name: Build static export
         # A project site lives under /<repo>, so assets need that prefix.
-        env:
-          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
-        run: pnpm build
+        # Derived from GITHUB_REPOSITORY so it holds for every trigger, not
+        # just the push event payload.
+        run: |
+          export NEXT_PUBLIC_BASE_PATH="/${GITHUB_REPOSITORY#*/}"
+          echo "Building with basePath $NEXT_PUBLIC_BASE_PATH"
+          pnpm build
 
       # `enablement` turns Pages on for the repo if it isn't already, so the
       # first deploy needs no manual setup in repository settings.
